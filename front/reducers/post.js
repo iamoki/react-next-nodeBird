@@ -7,7 +7,7 @@ export const initialState = {
             nickname: '닉네임1'
         },
         content: '첫 번째 게시글 #해시태그 #익스프레스',
-        Imaged: [
+        Images: [
             {
                 src: 'https://dummyimage.com/200x200/000/fff&text=dummy1',
             },
