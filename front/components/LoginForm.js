@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 // 커스텀 훅 불러오기
 import useInput from '../hooks/useInput';
 // 리듀서에서 가져오기
-import { loginAction } from '../reducers';
+import { loginAction } from '../reducers/user';
 
 const ButtonWrapper = styled.div`
     margin-top: 10px;
