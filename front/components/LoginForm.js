@@ -2,12 +2,12 @@ import React, { useCallback } from 'react';
 import { Form, Input, Button } from 'antd';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // 커스텀 훅 불러오기
 import useInput from '../hooks/useInput';
 // 리듀서에서 가져오기
-import { loginAction } from '../reducers/user';
+import { loginRequestAction } from '../reducers/user';
 
 const ButtonWrapper = styled.div`
     margin-top: 10px;
@@ -19,12 +19,13 @@ const FormWrapper = styled(Form)`
 
 const LoginForm = () => {
     const dispatch = useDispatch();
+    const { isLoggingIn } = useSelector((state) => state.user);
     const [id, onChangeId] = useInput('');
     const [password, onChangePassword] = useInput('');
 
     const onSubmitForm = useCallback(() => {
         console.log(id, password)
-        dispatch(loginAction({ id, password }));
+        dispatch(loginRequestAction({ id, password }));
     }, [id, password]);
 
     // const style = useMemo(() => ({ marginTop: 10 }), []);
@@ -54,7 +55,7 @@ const LoginForm = () => {
                 />
             </div>
             <ButtonWrapper>
-                <Button type="primary" htmlType="submit" loading={false}>로그인</Button>
+                <Button type="primary" htmlType="submit" loading={isLoggingIn}>로그인</Button>
                 <Link href="/signup"><a><Button>회원가입</Button></a></Link>
             </ButtonWrapper>
         </FormWrapper>
