@@ -2,9 +2,9 @@ import { useState, useCallback } from 'react';
 
 export default (initialValue = null) => {
     const [value, setValue] = useState(initialValue);
-    const handeler = useCallback((e) => {
+    const handler = useCallback((e) => {
         setValue(e.target.value);
     }, []);
 
-    return [value, handeler];
+    return [value, handler, setValue];
 }

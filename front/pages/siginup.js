@@ -6,14 +6,18 @@ import styled from 'styled-components';
 import AppLayout from '../components/AppLayout';
 // 커스텀 훅 불러오기
 import useInput from '../hooks/useInput';
+import { SIGN_UP_REQUEST } from '../reducers/user';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ErrorMessage = styled.div`
     color: red;
 `;
 
 const Signup = () => {
+    const dispatch = useDispatch();
+    const { signUpLoading } = useSelector((state) => state.user);
 
-    const [id, onChangeId] = useInput('');
+    const [email, onChangeEmail] = useInput('');
     const [nickname, onChangeNickname] = useInput('');
     
     const [password, onChangePassword] = useInput('');
@@ -38,8 +42,12 @@ const Signup = () => {
         if (!term) {
             return setTermError(true);
         }
-        console.log(id, nickname, password);
-    }, [password, passwordCheck, term]);
+        console.log(email, nickname, password);
+        dispatch({
+            type: SIGN_UP_REQUEST,
+            data: { email, password, nickname },
+        });
+    }, [email, password, passwordCheck, term]);
     return (
         <AppLayout>
             <Head>
@@ -47,9 +55,9 @@ const Signup = () => {
             </Head>
             <Form onFinish={onSubmit}>
                 <div>
-                    <label htmlFor="user-id">아이디</label>
+                    <label htmlFor="user-email">이메일</label>
                     <br/>
-                    <Input name="user-id" value={id} required onChange={onChangeId} />
+                    <Input name="user-email" type="email" value={email} required onChange={onChangeEmail} />
                 </div>
                 <div>
                     <label htmlFor="user-nick">닉네임</label>
@@ -85,7 +93,7 @@ const Signup = () => {
                 </div>
                 <div style={{ marginTop: 10}}>
                     {/* htmlType submit를 하면 onFinish가 실행됨 */}
-                    <Button type="primary" htmlType="submit">가입하기</Button>
+                    <Button type="primary" htmlType="submit" loading={signUpLoading}>가입하기</Button>
                 </div>
             </Form>
         </AppLayout>

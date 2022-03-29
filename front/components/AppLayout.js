@@ -30,7 +30,7 @@ const SearchInput = styled(Input.Search)`
 // 여기에서의 children은 pages에 있는 페이지속 컨텐츠
 const AppLayout = ({ children }) => {
 
-    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+    const { me } = useSelector((state) => state.user);
 
 
     return (
@@ -53,7 +53,7 @@ const AppLayout = ({ children }) => {
             {/* xs = 모바일, sm = 태블릿, md = 작은 데스크탑 */}
             <Row gutter={8}>
                 <Col xs={24} md={6}>
-                    {isLoggedIn ? <UserProfile /> : <LoginForm />}
+                    {me ? <UserProfile /> : <LoginForm />}
                 </Col>
                 <Col xs={24} md={12}>
                     {children}
