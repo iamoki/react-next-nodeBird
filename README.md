@@ -1,10 +1,10 @@
 # react-next-nodebird🐤
 
-## ✅ content
+> ✅ content
 
 트위터 유사SNS 서비스 구현 클론코딩
 
-## ✅ Tech Stack
+> ✅ Tech Stack
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
