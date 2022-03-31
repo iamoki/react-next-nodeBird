@@ -16,7 +16,7 @@
 > ✅ detailed description
 
 <b>Front</b><br/>
-React를 사용해 화면을 그려주고 데이터 저장장소로 Redux를 사용했으며, 초기 라우팅은 Next를 사용해 진행했습니다. 스타일링은 Ant Design 템플릿을 사용하고 추가적인 css부분은 styled-components로 입혀주었습니다.
+React를 사용해 화면을 그려주고 데이터 저장장소로 Redux를 사용했으며, 초기 라우팅은 Next를 사용해 진행했습니다. 스타일링은 Ant Design 템플릿을 사용하고 추가적인 css부분은 styled-components로 입혀주었습니다. 그리고 Props-types를 사용해 타입선언을 하였습니다.
 <br/>
 <br/>
 <b>Back</b><br/>
