@@ -115,12 +115,15 @@ const reducer = (state = initialState, action) => {
                 draft.loadPostsError = null;
                 break;
             case LOAD_POSTS_SUCCESS:
+                console.log('success');
+                console.log(JSON.stringify(draft.mainPosts));
                 draft.loadPostsLoading = false;
                 draft.loadPostsDone = true;
                 draft.mainPosts = action.data.concat(draft.mainPosts);
                 draft.hasMorePosts = draft.mainPosts.length < 50;
                 break;
             case LOAD_POSTS_FAILURE:
+                console.log('failed');
                 draft.loadPostsLoading = false;
                 draft.loadPostsError = action.error;
                 break;
