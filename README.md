@@ -17,3 +17,7 @@
 
 <b>Front</b><br/>
 React를 사용해 화면을 그려주고 데이터 저장장소로 Redux를 사용했으며, 초기 라우팅은 Next를 사용해 진행했습니다. 스타일링은 Ant Design 템플릿을 사용하고 추가적인 css부분은 styled-components로 입혀주었습니다.
+<br/>
+<br/>
+<b>Back</b><br/>
+node express를 통해 서버를 실행하며 mySQL로 스키마를 생성했습니다. 이후는 현재 진행중 입니다.
